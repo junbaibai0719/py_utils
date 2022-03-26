@@ -11,7 +11,7 @@ def timer(func):
         start = time.time()
         res = func(*args,**kwargs)
         end = time.time()
-        log.i(f"函数【{func.__name__}】 运行耗时 {end - start} 秒")
+        log.info(f"函数【{func.__name__}】 运行耗时 {end - start} 秒")
         return res
     return wrapper
 
@@ -25,7 +25,7 @@ def repeat(num = 1):
                 res.append(func(*args, **kwargs))
             end = time.time()
             cost = end - start
-            log.i(f"函数【{func.__name__}】运行{num}次耗时{cost}秒，平均每次耗时{cost/num*(10**9)}毫秒")
+            log.info(f"函数【{func.__name__}】运行{num}次耗时{cost}秒，平均每次耗时{cost/num*(10**9)}毫秒")
             return res
         return wrapper
     return decorator
@@ -36,4 +36,4 @@ def test():
 
 if __name__ == '__main__':
     test()
-    log.i(test.__name__)
+    log.info(test.__name__)
