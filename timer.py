@@ -15,6 +15,16 @@ def timer(func):
         return res
     return wrapper
 
+def atimer(func):
+    @functools.wraps(func)
+    async def wrapper(*args, **kwargs):
+        start = time.time()
+        res = await func(*args,**kwargs)
+        end = time.time()
+        log.info(f"异步函数【{func.__name__}】 运行耗时 {end - start} 秒")
+        return res
+    return wrapper
+
 def repeat(num = 1):
     def decorator(func):
         @functools.wraps(func)
