@@ -17,12 +17,11 @@ class Logger(logging.Logger):
         self._file_handler = logging.FileHandler(filename=log_save_path, encoding="utf-8")
 
         self._formatter = logging.Formatter(
-            "%(asctime)s %(name)s %(levelname)s %(filename)s-Process:%(process)d-Thread:%(thread)d-%(funcName)s-%(lineno)d: %(message)s")
+            "%(asctime)s %(levelname)s Process:%(process)d-Thread:%(thread)d-%(name)s-%(filename)s-%(funcName)s-%(lineno)d: %(message)s")
         self._stream_handler.setFormatter(self._formatter)
         self._file_handler.setFormatter(self._formatter)
         self.addHandler(self._stream_handler)
         self.addHandler(self._file_handler)
-
 
 
 if __name__ == '__main__':
