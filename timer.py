@@ -35,7 +35,7 @@ def repeat(num = 1):
                 res.append(func(*args, **kwargs))
             end = time.time()
             cost = end - start
-            log.info(f"函数【{func.__name__}】运行{num}次耗时{cost}秒，平均每次耗时{cost/num*(10**9)}毫秒")
+            log.info(f"函数【{func.__name__}】运行{num}次耗时{cost}秒，平均每次耗时{cost/num*(10**3)}毫秒")
             return res
         return wrapper
     return decorator
